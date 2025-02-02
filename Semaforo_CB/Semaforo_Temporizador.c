@@ -49,7 +49,6 @@ int64_t turn_off_callback(alarm_id_t id, void *user_data) {
 
 int main() {
     // Inicializa a comunicação serial para permitir o uso de printf.
-    // Isso é útil para depuração, embora não seja usado neste exemplo.
     stdio_init_all();
 
     // Configura os pinos para o LED RGB (11, 12 e 13) como saída digital.

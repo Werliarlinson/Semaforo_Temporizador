@@ -28,36 +28,36 @@ set(PICO_BOARD pico_w CACHE STRING "Board type")
 # Pull in Raspberry Pi Pico SDK (must be before project)
 include(pico_sdk_import.cmake)
 
-project(Semaforo_Temporizador_SB C CXX ASM)
+project(Semaforo_Temporizador C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(Semaforo_Temporizador_SB Semaforo_Temporizador_SB.c )
+add_executable(Semaforo_Temporizador Semaforo_Temporizador.c )
 
-pico_set_program_name(Semaforo_Temporizador_SB "botao_timer")
-pico_set_program_version(Semaforo_Temporizador_SB "0.1")
+pico_set_program_name(Semaforo_Temporizador "botao_timer")
+pico_set_program_version(Semaforo_Temporizador "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB
-pico_enable_stdio_uart(Semaforo_Temporizador_SB 1)
-pico_enable_stdio_usb(Semaforo_Temporizador_SB 1)
+pico_enable_stdio_uart(Semaforo_Temporizador 1)
+pico_enable_stdio_usb(Semaforo_Temporizador 1)
 
 # Add the standard library to the build
-target_link_libraries(Semaforo_Temporizador_SB
+target_link_libraries(Semaforo_Temporizador
         pico_stdlib
         pico_time)
 
 # Add the standard include files to the build
-target_include_directories(Semaforo_Temporizador_SB PRIVATE
+target_include_directories(Semaforo_Temporizador PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}
 )
 
 # Add any user requested libraries
-target_link_libraries(Semaforo_Temporizador_SB 
+target_link_libraries(Semaforo_Temporizador 
         
         )
 
-pico_add_extra_outputs(Semaforo_Temporizador_SB)
+pico_add_extra_outputs(Semaforo_Temporizador)
 
