@@ -37,7 +37,7 @@ pico_sdk_init()
 
 add_executable(Semaforo_Temporizador_SB Semaforo_Temporizador_SB.c )
 
-pico_set_program_name(Semaforo_Temporizador_SB "botao_timer")
+pico_set_program_name(Semaforo_Temporizador_SB "Semaforo_Temporizador_SB")
 pico_set_program_version(Semaforo_Temporizador_SB "0.1")
 
 # Modify the below lines to enable/disable output over UART/USB

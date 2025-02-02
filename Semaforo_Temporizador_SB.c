@@ -17,19 +17,24 @@ volatile uint8_t estado = 0;                // 0: LED_AZUL, 1: LED_VERDE, 2: LED
 
 // Função de callback para desligar o LED após o tempo programado.
 bool repeating_timer_callback(struct repeating_timer *t) {
-
+    
+    //Verificação do tempo transcorrido em segundos
     tempo++;
     printf("Tempo decorrido: %d segundos\n", tempo);
 
+    // Irá mudar o estado do semáforo a cada 3 segundos
     if (tempo >= 3) {
+        
         tempo = 0;
         estado = (estado + 1) % 3;
 
-        gpio_put(LED_VERDE, estado == 1 || estado == 2);
+        // Atualiza o estado dos LEDs de acordo com o estado do semáforo de uma maneira mais eficiente
+        gpio_put(LED_VERDE, estado == 1 || estado == 2); 
         gpio_put(LED_VERMELHO, estado == 1 || estado == 0);
 
         switch (estado) {
             case 0:
+                printf("Reiniciando ciclo do semáforo\n");
                 printf("LED Vermelho ativo\n");
                 break;
             case 1:
@@ -37,7 +42,6 @@ bool repeating_timer_callback(struct repeating_timer *t) {
                 break;
             case 2:
                 printf("LED Verde ativo\n");
-                printf("Reiniciando ciclo do semáforo\n");
                 break;
         }
     }
